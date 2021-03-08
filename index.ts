@@ -26,7 +26,7 @@ app.post('/', (req, res) => {
   todos.push(req.body.todoadder);
   res.render('index', { 
     title: 'Hey',
-    message: 'Hello there! Your entry was added!!!',
+    message: 'Hello there! Your entry was added!',
     todos: todos
   })
 });
