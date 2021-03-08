@@ -1,0 +1,30 @@
+GET http://localhost:8000
+
+
+###
+
+
+POST http://localhost:8000
+
+###
+
+POST http://localhost:8000/json
+content-type: application/json
+
+{
+    "hallo": "robert",
+    "message": "tinsi antwortet mir wieder auf telegram nicht"
+}
+
+###
+
+PUT http://localhost:8000
+
+###
+
+DELETE http://localhost:8000
+
+###
+
+PATCH http://localhost:8000
+

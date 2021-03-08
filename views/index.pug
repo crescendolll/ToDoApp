@@ -1,0 +1,13 @@
+html 
+  head 
+    title= title 
+  body
+    h1= message
+
+    ol
+      each todo in todos
+        li= todo
+
+    form(action="/", method="POST")
+      input(id = "todoadder" type="text" name="todoadder" placeholder= "Enter new todo")
+      button(type="submit") Submit
