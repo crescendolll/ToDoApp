@@ -5,8 +5,10 @@ const app = express();
 app.set('view engine', 'pug')
 const PORT = 8000;
 
+const fs = require('fs');
+//const todos: string[] = ['create todo list', 'fill todo list', 'develop an app'];
 
-const todos: string[] = ['create todo list ', 'fill todo list', 'develop an app'];
+const todos: string[] = fs.readFileSync('C:/Users/Robert/projects/TS-todo/todoSavings.txt','utf8').split(',');
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -24,12 +26,25 @@ app.get('/', (req, res) =>
 app.post('/', (req, res) => {
   console.log(req.body);
   todos.push(req.body.todoadder);
+  fs.writeFile("todoSavings.txt", todos.toString(), function(err) {
+    if(err) {
+      return console.log(err);
+    }
+    console.log("File saved");
+  });
   res.render('index', { 
     title: 'Hey',
     message: 'Hello there! Your entry was added!',
     todos: todos
   })
 });
+
+// fs.writeFile("todoSavings.txt", todos.toString(), function(err) {
+//   if(err) {
+//     return console.log(err);
+//   }
+//   console.log("File saved");
+// });
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
