@@ -8,6 +8,6 @@ html
       each todo in todos
         li= todo
 
-    form(action="/", method="POST")
-      input(id = "todoadder" type="text" name="todoadder" placeholder= "Enter new todo")
+    form(action= "/", method= "POST")
+      input(type= "text" name="todoadder" placeholder= "enter new ToDo")
       button(type="submit") Submit
