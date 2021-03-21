@@ -1,14 +1,15 @@
 import express from 'express';
+import exphbs from 'express-handlebars';
+import fs from 'fs';
 
-// rest of the code remains same
 const app = express();
-const fs = require('fs');
 
 const PORT = 8000;
+
 const todos: string[] = fs.readFileSync('todoSavings.txt', 'utf8').split(',');
 
-
-app.set('view engine', 'pug')
+app.engine('handlebars', exphbs()); // replaces app.set('view engine', 'pug')
+app.set('view engine', 'handlebars');
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
