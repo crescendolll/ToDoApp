@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/express-handlebars": "^3.1.0",
     "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
     "pug": "^3.0.0"
   },
   "devDependencies": {
